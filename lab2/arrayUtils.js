@@ -93,19 +93,14 @@ function isEqual(arrayOne, arrayTwo) {
     return arrayTwo[i] === undefined;
 }
 
-// let test1 = [];
-// let test2 = 1;
-// let test3 = [1,2,3,4,5,6,1];
-
-
-// console.log(isEqual([1, 2, 3], [1, 2, 3])); // Returns: true
-// console.log(isEqual([1, 2, 3], [4, 5, 6])); // Returns: false
-// console.log(isEqual([1, 3, 2], [1, 2, 3])); // Returns: false
-// console.log(isEqual([1, 2], [1, 2, 3])); // Returns: false
-// console.log(isEqual([1, 2, 3], [1, 2])); // Returns: false
-// console.log(isEqual([], [])); // Returns: true
-
-
-
-
-console.log(countElements([13, '13', 13, 'hello', true, true]));
+module.exports = {
+    firstName: "Alex",
+    lastName: "Schlumpf",
+    studentId: "10414246",
+    head,
+    last,
+    remove,
+    range,
+    countElements,
+    isEqual
+};
