@@ -1,0 +1,14 @@
+{
+  "name": "cs-546-lab-3",
+  "version": "1.0.0",
+  "description": "CS-546 Lab 3",
+  "main": "index.js",
+  "scripts": {
+     "start": "node index.js"
+  },
+  "author": "Alex Schlumpf 10414246",
+  "license": "ISC",
+  "dependencies": {
+     "axios": "^0.18.0"
+  }
+}
