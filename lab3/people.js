@@ -1,6 +1,8 @@
 const PEOPLE_URL = 'https://gist.githubusercontent.com/robherley/5112d73f5c69a632ef3ae9b7b3073f78/raw/24a7e1453e65a26a8aa12cd0fb266ed9679816aa/people.json';
 const axios = require('axios');
 
+const VOWELS = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+
 async function getPeople(){
     const { data } = await axios.get(PEOPLE_URL);
     return data; // this will be the array of people
@@ -41,12 +43,32 @@ async function lexIndex(index) {
     return `${person.firstName} ${person.lastName}`;
 }
 
+function isVowel(char) {
+    return char in VOWELS;
+}
+
 async function firstNameMetrics() {
-    
+    const people = await getPeople();
+    let sumFirstNames = 0;
+    let sumVowels = 0;
+    people.forEach(person => {
+        let localsum = 0;
+        let localsumVowel = 0;
+        person.firstName.split('').forEach(char => {
+            const ascii = char.charCodeAt(0);
+            localsum += ascii;
+            if (isVowel(char)) {
+                localsumVowel += ascii;
+            }
+        });
+        sumFirstNames += localsum;
+        sumVowels += localsumVowel;
+    });
+    console.log([sumFirstNames, sumVowels])
 }
 
 (async () => {
-    console.log(await lexIndex(2));
+    console.log(await firstNameMetrics());
 })()
 
 module.exports = {
