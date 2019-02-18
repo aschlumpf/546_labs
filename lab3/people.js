@@ -21,13 +21,38 @@ async function getPersonById(index) {
     return `${person.firstName} ${person.lastName}`;
 }
 
+function compare(p1, p2) {
+    return p1.lastName.localeCompare(p2.lastName);
+}
+
+async function lexIndex(index) {
+    if (index === undefined || (typeof index !== 'number')) {
+        throw "Index must be defined and of number type.";
+    }
+    if (index < 0) {
+        throw "Index out of bounds";
+    }
+    const people = await getPeople();
+    if (index >= people.size) {
+        throw "Index out of bounds"; 
+    }
+    const peopleSorted = people.sort(compare);
+    const person = peopleSorted[index];
+    return `${person.firstName} ${person.lastName}`;
+}
+
+async function firstNameMetrics() {
+    
+}
+
 (async () => {
-    console.log(await getPersonById(42));
+    console.log(await lexIndex(2));
 })()
 
 module.exports = {
     firstName: "Alex",
     lastName: "Schlumpf",
     studentId: "10414246",
-    getPersonById
+    getPersonById,
+    lexIndex
 };
