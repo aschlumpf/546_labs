@@ -43,28 +43,47 @@ async function lexIndex(index) {
     return `${person.firstName} ${person.lastName}`;
 }
 
-function isVowel(char) {
-    return char in VOWELS;
+function sumVowels(string) {
+    let sum = 0;
+    for (let i = 0; i < string.length; i++) {
+        if (VOWELS.indexOf(string[i]) != -1) {
+            sum++;
+        }
+    }
+    return sum;
 }
 
 async function firstNameMetrics() {
     const people = await getPeople();
     let sumFirstNames = 0;
-    let sumVowels = 0;
+    let sumFirstNameVowels = 0;
+    let max = 0;
+    let min = Number.MAX_SAFE_INTEGER;
+    let longest = "";
+    let shortest = "";
+    let sumFirstNameCons;
+    people.forEach(person => sumFirstNames += person.firstName.length);
+    people.forEach(person => sumFirstNameVowels += sumVowels(person.firstName));
     people.forEach(person => {
-        let localsum = 0;
-        let localsumVowel = 0;
-        person.firstName.split('').forEach(char => {
-            const ascii = char.charCodeAt(0);
-            localsum += ascii;
-            if (isVowel(char)) {
-                localsumVowel += ascii;
-            }
-        });
-        sumFirstNames += localsum;
-        sumVowels += localsumVowel;
+        if (person.firstName.length > max) {
+            max = person.firstName.length;
+            longest = person.firstName;
+        }
     });
-    console.log([sumFirstNames, sumVowels])
+    people.forEach(person => {
+        if (person.firstName.length < min) {
+            min = person.firstName.length;
+            shortest = person.firstName;
+        }
+    });
+    sumFirstNameCons = sumFirstNames - sumFirstNameVowels;
+    return {
+        totalLetters: sumFirstNames,
+        totalVowels: sumFirstNameVowels,
+        totalConsonants: sumFirstNameCons,
+        longestName: longest,
+        shortestName: shortest
+    };
 }
 
 (async () => {
@@ -76,5 +95,6 @@ module.exports = {
     lastName: "Schlumpf",
     studentId: "10414246",
     getPersonById,
-    lexIndex
+    lexIndex,
+    firstNameMetrics
 };
