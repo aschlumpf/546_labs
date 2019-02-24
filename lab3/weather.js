@@ -34,9 +34,9 @@ async function shouldTheyGoOutside(firstName, lastName) {
 
 }
 
-(async () => {
-    console.log(await shouldTheyGoOutside("Calli", "Ondrasek"));
-})()
+// (async () => {
+//     console.log(await shouldTheyGoOutside("Calli", "Ondrasek"));
+// })()
 
 module.exports = {
     firstName : "Alex",

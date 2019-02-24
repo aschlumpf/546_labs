@@ -19,7 +19,7 @@ async function getPersonById(index) {
     if (index >= people.length) {
         throw "Index out of bounds"
     }
-    const person = people[index];
+    const person = people.filter((p) => p.id === index)[0];
     return `${person.firstName} ${person.lastName}`;
 }
 
@@ -86,9 +86,9 @@ async function firstNameMetrics() {
     };
 }
 
-(async () => {
-    console.log(await firstNameMetrics());
-})()
+// (async () => {
+//     console.log(await getPersonById(43));
+// })()
 
 module.exports = {
     firstName: "Alex",

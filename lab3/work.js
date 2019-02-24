@@ -53,6 +53,14 @@ async function findTheHacker(ip) {
     }
 }
 
-(async () => {
-    console.log(await findTheHacker("79.222.167.180"));
-})()
+// (async () => {
+//     console.log(await findTheHacker("79.222.167.180"));
+// })()
+
+module.exports = {
+    firstName : "Alex",
+    lastName : "Schlumpf",
+    studentId: "10414246",
+    whereDoTheyWork,
+    findTheHacker
+}
