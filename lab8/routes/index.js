@@ -9,7 +9,7 @@ const constructorMethod = app => {
         res.sendFile(path.resolve("static/index.html"))
     });
     app.use("*", (req, res) => {
-        res.status(404).json({ error: "Not found" });
+        res.status(404).render("notfound");
     });
 }
 

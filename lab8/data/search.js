@@ -29,11 +29,10 @@ async function getPeopleByName(name) {
         throw "Name must be of type string";
     }
     const people = await getPeople();
+    const lName = name.toLowerCase();
     return people.filter(p => 
-        p.firstName.includes(name) 
-        || p.lastName.includes(name)
-        || p.firstName.includes(name.toLowerCase())
-        || p.lastName.includes(name.toLowerCase())
+        p.firstName.toLowerCase().includes(lName) 
+        || p.lastName.toLowerCase().includes(lName)
     );
 }
 

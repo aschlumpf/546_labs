@@ -64,3 +64,8 @@ dd {
     font-size: 32pt;
     color: red;
 }
+
+.notfound {
+    font-size: 40pt;
+    margin-left: 0px;
+}
