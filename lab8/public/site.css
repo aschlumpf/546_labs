@@ -1,0 +1,61 @@
+html,
+body {
+    font-size: 14pt;
+}
+
+h1 {
+    max-width: 75%;
+    margin: auto;
+}
+
+h2 {
+    color: #a9a9a9;
+    max-width: 75%;
+    text-decoration: underline;
+    margin: auto;  
+}
+
+li {
+    padding-bottom: 20px;
+    margin-left: 50px;
+}
+
+main {
+    max-width: 75%;
+    margin: auto;
+}
+
+.another-search {
+    max-width: 75%;
+    margin-left: 120px;
+    font-size: 18pt;
+}
+
+.detail-header,
+.search-header {
+    padding-bottom: 30px;
+}
+
+ul {
+    max-width: 75%;
+    margin: auto;
+}
+
+dt {
+    margin: auto;
+    text-decoration: underline;
+}
+dd {
+    padding-bottom: 20px;
+}
+.button {
+    margin-top: 20px;
+    width: 140px;
+    height: 40px;
+    font-size: 18px;
+    color: white;
+    background-color: green;
+}
+.button:hover{
+    background-color:lightgreen;
+}

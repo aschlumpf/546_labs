@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>People Finder</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/public/site.css">
+    </head>
+    <body>
+        <h1>People Finder</h1>
+        <main>
+            <p>
+                This a website for querying information from a people database. Simply enter the name of a person, first or last,
+                and receive a result with the corresponding people that match that name.
+            </p>
+            <form action="/search" method="post">
+                <div>
+                    <label for="personName">Person Name:</label>
+                    <input type="text" id="personName" name="personName">
+                </div>
+                <div>
+                        <button class="button" type="submit">Submit</button>
+                </div>
+            </form>
+        </main>
+    </body>
+</html>
