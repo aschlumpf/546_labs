@@ -11,10 +11,10 @@ router.post("/", async (req, res) => {
         }
         else {
             const people = await getPeopleByName(personName);
-            res.render("search", {people: people, personName: personName});
+            res.render("search", {people: people.slice(0, 20), personName: personName});
         }
     } catch(e) {
-        res.status(404).json({error : "error"});
+        res.status(400).render("personError"), {personName: personName};
     }
 });
 

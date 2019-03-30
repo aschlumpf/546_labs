@@ -15,6 +15,9 @@ async function getPersonById(id) {
     }
     const people = await getPeople();
     const person = people.filter(p => p.id === id)[0]
+    if (!person) {
+        throw "No person with that id."
+    }
     return person;
 }
 
