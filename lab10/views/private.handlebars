@@ -1,0 +1,28 @@
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/public/css/site.css">
+        <title>Private Page</title>
+    </head>
+    <body>
+        <h1>Private Page</h1>
+        <main>
+            <dl>
+                <dt>ID</dt>
+                <dd>{{user._id}}</dd>
+                <dt>Username</dt>
+                <dd>{{user.username}}</dd>
+                <dt>First Name</dt>
+                <dd>{{user.firstName}}</dd>
+                <dt>Last Name</dt>
+                <dd>{{user.lastName}}</dd>
+                <dt>Bio</dt>
+                <dd>{{user.bio}}</dd>
+                <dt>Profession</dt>
+                <dd>{{user.profession}}</dd>
+            </dl>
+        </main>
+        <footer><a href="/logout">Logout</a></footer>
+    </body>
