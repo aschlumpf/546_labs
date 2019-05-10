@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-// const session = require('express-session')
+const users = require("./users");
 const router = express.Router();
 
 router.use(async function(request, response, next) {
@@ -8,11 +8,22 @@ router.use(async function(request, response, next) {
         next();
     }
     else {
-        response.redirect("/");
+        response.status(403).render("notlogged");
+        // response.redirect("/");
     }
 });
 router.get("/", async (req, res) => {
-    res.render("private", {user: req.session.user});
+    const user = users.filter(u => u.username === req.session.user)[0];
+    const userInfo = {
+            _id: user._id,
+            username: user.username,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            bio: user.bio,
+            profession: user.profession
+    }
+    res.render("private", {user: userInfo});
+
 });
 
 

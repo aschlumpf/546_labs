@@ -14,22 +14,12 @@ router.post("/", async (req, res) => {
             break;
         }
     }
-    // console.log(user);
     if (user) {
-        const storedUser = {
-            _id: user._id,
-            username: user.username,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            bio: user.bio,
-            profession: user.profession
-        }
-        req.session.user = storedUser;
+        req.session.user = user.username;
         req.session.valid = true;
         res.redirect("/private");
     }
     else {
-        // console.log("user does not exist");
         res.status(401).render("index", {invalid: true});
     }
 });
